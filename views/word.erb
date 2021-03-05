@@ -1,5 +1,19 @@
 <h1><%= @word.word %></h1>
 
+<form action='/words/<%= @word.id %>' method='post'>
+  <input name="_method" type="hidden" value="patch">
+
+  <label for='word'>Edit the Word</label><br>
+  <input id='word' name='word' value='' type='text'><br>
+
+  <button type='submit'>Update Word</button>
+</form>
+<form action='/words' method='post'>
+  <input name="_method" type="hidden" value="delete">
+
+  <button type='submit'>Delete Word</button><br>
+</form> 
+
 <h4> Current Definitions </h4>
 
 <% if @word.definitions %>
@@ -19,7 +33,7 @@
         <label for='definition'> Definition: </label>
         <input id='definition' name='definition' class='form-control' type='text'>
       </div>
-      <button type='submit' class='btn'>Submit Definition</button>
+      <button type='submit'>Submit Definition</button>
 </form>
 
-<a href= '/words'> Back to Main Page</a>
+<a href= '/words'>Back to Main Page</a>

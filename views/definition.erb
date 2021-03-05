@@ -5,7 +5,7 @@
 <form action='/words/<%= @word.id %>/definitions/<%= @definition.id %>' method='post'>
   <input name="_method" type="hidden" value="patch">
 
-  <label for='definition'> Edit the definition </label><br>
+  <label for='definition'>Edit the definition</label><br>
   <input id='defintion' name='definition' value='<%= @definition.definition %>' type='text'><br>
 
   <button type='submit'>Update</button>
@@ -15,6 +15,7 @@
   <input name="_method" type="hidden" value="delete">
 
   <button type='submit'>Delete Definition</button><br>
+</form>
 
 
 

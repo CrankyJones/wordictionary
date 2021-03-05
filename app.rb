@@ -39,6 +39,21 @@ post('/words/:id') do
   erb(:word)
 end
 
+patch ('/words/:id') do
+  @word = Word.find(params[:id].to_i)
+  @word.update(params[:word])
+  @words = Word.all
+  erb(:word)
+end
+
+delete ('/words') do
+  @word = Word.find(params[:id].to_i)
+  @word.delete
+  @words = Word.all
+  erb(:words)
+end
+
+
 get ('/words/:id/definitions/:def_id') do
   @word = Word.find(params[:id].to_i)
   @definition = Definition.find(params[:def_id].to_i)
