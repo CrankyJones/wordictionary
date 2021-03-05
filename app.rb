@@ -38,3 +38,23 @@ post('/words/:id') do
   definition.save
   erb(:word)
 end
+
+get ('/words/:id/definitions/:def_id') do
+  @word = Word.find(params[:id].to_i)
+  @definition = Definition.find(params[:def_id].to_i)
+  erb(:definition)
+end
+
+patch ('/words/:id/definitions/:def_id') do
+  @word = Word.find(params[:id].to_i)
+  definition = Definition.find(params[:def_id].to_i)
+  definition.update(params[:definition], @word.id)
+  erb(:word)
+end
+
+delete ('/words/:id/definitions/:def_id') do
+  definition = Definition.find(params[:def_id].to_i)
+  definition.delete
+  @word = Word.find(params[:id].to_i)
+  erb(:word)
+end
