@@ -23,8 +23,7 @@ post('/words') do
   input = params[:word]
   word = Word.new(input, nil)
   word.save
-  @words = Word.all
-  erb(:words)
+  redirect to ('/words')
 end
 
 get ('/words/:id') do
@@ -42,17 +41,14 @@ end
 patch ('/words/:id') do
   @word = Word.find(params[:id].to_i)
   @word.update(params[:word])
-  @words = Word.all
-  erb(:word)
+  redirect to ('/words')
 end
 
 delete ('/words/:id') do
   @word = Word.find(params[:id].to_i)
   @word.delete()
-  @words = Word.all
-  erb(:words)
+  redirect to ('/words')
 end
-
 
 get ('/words/:id/definitions/:def_id') do
   @word = Word.find(params[:id].to_i)
