@@ -3,6 +3,11 @@ require ('definition')
 
 describe '#Definition' do
 
+  before(:each) do
+    Definition.clear()
+    Word.clear()
+  end
+
   describe('.all') do
     it("returns an empty array when there are no definitions") do
       expect(Definition.all).to(eq([]))
@@ -39,7 +44,7 @@ describe '#Definition' do
     end
   end
 
-  describe ('.update') do
+  describe ('#update') do
     it ('updates a definition') do
       definition = Definition.new('a stinky garbage can', @word_id, nil)
       definition.save
@@ -48,6 +53,15 @@ describe '#Definition' do
     end
   end
 
-
+  describe('#delete') do
+    it ('deletes a definition') do
+      definition = Definition.new('a stinky garbage can', @word_id, nil)
+      definition.save
+      definition2 = Definition.new('a scenic view', @word_id, nil)
+      definition2.save
+      definition.delete
+      expect(Definition.all).to(eq([definition2]))
+    end
+  end
 
 end

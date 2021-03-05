@@ -10,6 +10,10 @@ class Word
     @id = (id || @@total_count += 1)
   end
 
+  def self.clear
+    @@words = {}
+  end
+
   def self.all
     @@words.values()
   end

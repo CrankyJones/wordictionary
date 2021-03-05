@@ -11,6 +11,10 @@ class Definition
     @id = (id || @@total_count += 1)  
   end
 
+  def self.clear
+    @@definitions = {}
+  end
+
   def self.all
     @@definitions.values
   end
@@ -34,6 +38,7 @@ class Definition
   end
 
   def delete
+    @@definitions.delete(self.id)
   end
 
 end
