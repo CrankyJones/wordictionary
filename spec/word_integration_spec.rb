@@ -13,9 +13,18 @@ describe('create a word path', {:type => :feature}) do
   end
 end
 
+describe('create a word deletion path',  {:type => :feature}) do
+  it('deletes a word') do
+    visit('/words')
+    click_on('Helmet')
+    click_on('Delete Word')
+    expect(page).not_to have_content('Helmet')
+  end
+end
+
 describe('create a definition path',  {:type => :feature}) do
   it('adds a definition to a word') do
-    word = Word.new('Helmet', nil)
+    word = Word.new('Hat', nil)
     word.save
     visit("/words/#{word.id}")
     fill_in('definition', :with => 'protective head gear')
@@ -23,3 +32,6 @@ describe('create a definition path',  {:type => :feature}) do
     expect(page).to have_content('protective head gear')
   end
 end
+
+
+
