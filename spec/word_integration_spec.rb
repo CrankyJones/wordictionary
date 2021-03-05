@@ -33,5 +33,16 @@ describe('create a definition path',  {:type => :feature}) do
   end
 end
 
+describe('create an update definition path', {:type => :feature}) do
+  it('updates an existing definition') do
+    visit('/words')
+    click_on('Hat')
+    click_on('protective head gear')
+    fill_in('definition', :with => 'stylish head wear')
+    click_on('Update Definition')
+    expect(page).to have_content('stylish head wear')
+  end
+end
+
 
 
