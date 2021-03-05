@@ -12,3 +12,14 @@ describe('create a word path', {:type => :feature}) do
     expect(page).to have_content('Helmet')
   end
 end
+
+describe('create a definition path',  {:type => :feature}) do
+  it('adds a definition to a word') do
+    word = Word.new('Helmet', nil)
+    word.save
+    visit("/words/#{word.id}")
+    fill_in('definition', :with => 'protective head gear')
+    click_on('Submit Definition')
+    expect(page).to have_content('protective head gear')
+  end
+end
