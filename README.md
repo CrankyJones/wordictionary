@@ -27,7 +27,7 @@ You can either click on the Heroku link below, or follow the subsequent instruct
 * To run the script: $ ruby app.rb
 * In your browser, navigate to localhost:4567  
 
-## Git Hub link:
+## Git Hub link:s
 
 https://github.com/CrankyJones/wordictionary
 
