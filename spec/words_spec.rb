@@ -54,6 +54,27 @@ describe '#Words' do
       expect(word.definitions).to(eq([definition, definition2]))
     end
   end
+
+  describe('#update') do
+    it('will change the current word') do
+      word = Word.new('booger', nil)
+      word.save
+      word.update('hats')
+      expect(word.word).to(eq('hats'))
+    end
+  end
+
+  describe('#delete') do
+    it('will delete the current word from the list') do
+      word = Word.new('booger', nil)
+      word.save()
+      word2 = Word.new('hat', nil)
+      word2.save
+      word.delete
+      expect(Word.all).to(eq([word2]))
+    end
+  end
   
+    
 
 end

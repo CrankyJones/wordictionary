@@ -8,7 +8,7 @@
 
   <button type='submit'>Update Word</button>
 </form>
-<form action='/words' method='post'>
+<form action='/words/<%= @word.id %>' method='post'>
   <input name="_method" type="hidden" value="delete">
 
   <button type='submit'>Delete Word</button><br>
@@ -19,7 +19,7 @@
 <% if @word.definitions %>
   <ul>
     <% @word.definitions.each do |definition| %>
-      <li><a href='/words/<%= @word.id %>/definitions/<%= definition.id %>'><%= definition.definition %> </li>
+      <li><a href='/words/<%= @word.id %>/definitions/<%= definition.id %>'><%= definition.definition %> </a></li>
     <% end %>
   </ul>
 <% else %>
