@@ -26,3 +26,15 @@ post('/words') do
   @words = Word.all
   erb(:words)
 end
+
+get ('/words/:id') do
+  @word = Word.find(params[:id].to_i)
+  erb(:word)
+end
+
+post('/words/:id') do
+  @word = Word.find(params[:id].to_i)
+  definition = Definition.new(params[:definition], @word.id, nil)
+  definition.save
+  erb(:word)
+end
