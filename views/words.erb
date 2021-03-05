@@ -2,13 +2,15 @@
 
 <h3> Current Word Repository: </h3>
 
-<% if @words.any? %>
-  <ul>
-    <% @words.each do |word| %>
-      <li><a href="/word/ <%= word.id %>"> <%= word.word %></a></li>
-      <% end %>
-  </ul>
-<% else %>
-  <p>The repository is currently empty. Add words to fill it!</p><br>
+  <% if @words.any? %>
+    <ul>
+      <% @words.each do |word| %>
+        <li><a href="/word/<%= word.id %>"> <%= word.word %></a></li>
+        <% end %>
+    </ul>
+  <% else %>
+    <p>The repository is currently empty. Add words to fill it!</p><br>
+  <% end %>
 
-<a href= '/words/new'> Add a New Word</a>
+<a href= '/words/new'> Add a New Word</a><br>
+<a href= '/words'> Back to Main Page</a>

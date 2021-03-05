@@ -13,11 +13,16 @@ end
 get ('/words') do
   @words = Word.all
   erb(:words)
+end
 
-get ('/words/1new') do
+get ('/words/new') do
   erb(:new_word)
 end
 
-post('/words/new') do
-
+post('/words') do
+  input = params[:word]
+  word = Word.new(input, nil)
+  word.save
+  @words = Word.all
+  erb(:words)
 end

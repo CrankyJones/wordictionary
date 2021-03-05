@@ -2,3 +2,21 @@
 
 <h4> Current Definitions </h4>
 
+<% if @word.definitions %>
+  <ul>
+    <% @word.definitions.each do |definition| %>
+      <li> <%= definition.definition %> </li>
+    <% end %>
+  </ul>
+<% else %>
+      <p> There are currently no definitions. </p>
+
+<h3> Add a definition: </h3>
+
+<form action='/words/<%= @word.id %>' method='post'>
+      <div class='form-group'>
+        <label for='definition'> Definition: </label>
+        <input id='definition' name='definition' class='form-control' type='text'>
+      </div>
+      <button type='submit' class='btn'>Submit Definition</button>
+</form>
