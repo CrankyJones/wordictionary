@@ -3,6 +3,10 @@ require ('word')
 
 describe '#Words' do
 
+  before(:each) do
+    Word.clear
+  end
+
   describe('.all') do
     it("returns an empty array when there are no words") do
       expect(Word.all).to(eq([]))
@@ -39,5 +43,17 @@ describe '#Words' do
     end
   end
 
+  describe('#definitions') do
+    it('returns a words defintions') do
+      word = Word.new('booger', nil)
+      word.save
+      definition = Definition.new('a stinky garbage can', word.id, nil)
+      definition.save
+      definition2 = Definition.new('a scenic view', word.id, nil)
+      definition2.save
+      expect(word.definitions).to(eq([definition, definition2]))
+    end
+  end
+  
 
 end

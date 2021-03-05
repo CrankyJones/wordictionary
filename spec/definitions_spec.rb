@@ -6,6 +6,8 @@ describe '#Definition' do
   before(:each) do
     Definition.clear()
     Word.clear()
+    @word = Word.new('booger', nil)
+    @word.save
   end
 
   describe('.all') do
@@ -15,10 +17,10 @@ describe '#Definition' do
   end
 
   describe('#save') do
-    it('saves a word') do
-      definition = Definition.new('a stinky garbage can', @word_id, nil)
+    it('saves a definition') do
+      definition = Definition.new('a stinky garbage can', @word.id, nil)
       definition.save()
-      definition2 = Definition.new('a scenic view', @word_id, nil)
+      definition2 = Definition.new('a scenic view', @word.id, nil)
       definition2.save()
       expect(Definition.all).to(eq([definition, definition2]))
     end
@@ -26,9 +28,9 @@ describe '#Definition' do
 
   describe ('#==') do
     it('is the same word, if the word is the same') do
-      definition = Definition.new('a stinky garbage can', @word_id, nil)
+      definition = Definition.new('a stinky garbage can', @word.id, nil)
       definition.save()
-      definition2 = Definition.new('a stinky garbage can', @word_id, nil)
+      definition2 = Definition.new('a stinky garbage can', @word.id, nil)
       definition2.save()
       expect(definition).to(eq(definition2))
     end
@@ -36,9 +38,9 @@ describe '#Definition' do
 
   describe ('.find') do
     it('finds a word by id') do
-      definition = Definition.new('a stinky garbage can', @word_id, nil)
+      definition = Definition.new('a stinky garbage can', @word.id, nil)
       definition.save()
-      definition2 = Definition.new('a scenic view', @word_id, nil)
+      definition2 = Definition.new('a scenic view', @word.id, nil)
       definition2.save()
       expect(Definition.find(definition.id)).to(eq(definition))
     end
@@ -46,18 +48,18 @@ describe '#Definition' do
 
   describe ('#update') do
     it ('updates a definition') do
-      definition = Definition.new('a stinky garbage can', @word_id, nil)
+      definition = Definition.new('a stinky garbage can', @word.id, nil)
       definition.save
-      definition.update('a pleasant garbage can', @word_id)
+      definition.update('a pleasant garbage can', @word.id)
       expect(definition.definition).to(eq('a pleasant garbage can'))
     end
   end
 
   describe('#delete') do
     it ('deletes a definition') do
-      definition = Definition.new('a stinky garbage can', @word_id, nil)
+      definition = Definition.new('a stinky garbage can', @word.id, nil)
       definition.save
-      definition2 = Definition.new('a scenic view', @word_id, nil)
+      definition2 = Definition.new('a scenic view', @word.id, nil)
       definition2.save
       definition.delete
       expect(Definition.all).to(eq([definition2]))

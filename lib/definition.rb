@@ -41,4 +41,14 @@ class Definition
     @@definitions.delete(self.id)
   end
 
+  def self.find_by_word(wd_id)
+    definitions = []
+    @@definitions.values.each do |definition|
+      if definition.word_id == wd_id
+        definitions.push(definition)
+      end
+    end
+    definitions
+  end
+
 end
