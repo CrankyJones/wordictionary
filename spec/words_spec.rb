@@ -19,5 +19,15 @@ describe '#Words' do
     end
   end
 
+  describe ('#==') do
+    it('is the same word, if the word is the same') do
+      word = Word.new('booger', nil)
+      word.save()
+      word2 = Word.new('booger', nil)
+      word2.save
+      expect(word).to(eq(word2))
+    end
+  end
+
 
 end
