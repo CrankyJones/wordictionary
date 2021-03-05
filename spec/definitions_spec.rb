@@ -39,5 +39,15 @@ describe '#Definition' do
     end
   end
 
+  describe ('.update') do
+    it ('updates a definition') do
+      definition = Definition.new('a stinky garbage can', @word_id, nil)
+      definition.save
+      definition.update('a pleasant garbage can', @word_id)
+      expect(definition.definition).to(eq('a pleasant garbage can'))
+    end
+  end
+
+
 
 end

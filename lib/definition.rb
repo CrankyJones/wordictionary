@@ -26,4 +26,14 @@ class Definition
   def self.find(id)
     @@definitions[id]
   end
+
+  def update(definition, word_id)
+    self.definition = definition
+    self.word_id = word_id
+    @@definitions[self.id] = Definition.new(self.definition, self.word_id, self.id)
+  end
+
+  def delete
+  end
+
 end
