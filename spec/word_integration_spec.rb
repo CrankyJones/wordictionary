@@ -44,5 +44,15 @@ describe('create an update definition path', {:type => :feature}) do
   end
 end
 
+describe('create a delete defintion path', {:type => :feature}) do
+  it('deletes an existing definition') do
+    visit('/words')
+    click_on('Hat')
+    click_on('stylish head wear')
+    click_on('Delete Definition')
+    expect(page).to have_content('There are currently no definitions.')
+  end
+end
+
 
 
