@@ -15,7 +15,7 @@
 
 ## Description
 
-This checker will take two inputs, both words and phrases.  It check to make sure there is at least one vowel and no numbers in the words. If that test passes, it will strip punctuation and whitespace from the inputted string.  Next, it converts the string into an array of single letters. The checker then sorts these arrays alphabetically and then checks to see if the arrays are the same. If they are not anigrams, it calls an another method to determine if there are no letter matches. If there are a few matches, the checker will count the number of letter matches and then display those letters.
+The home page will allow the user to add additional words to the list or click on a word to see any added definitions. Adding a new word takes the user to a new page with a text field and submit button. Clicking on an existing entry takes the used to a page for that word. Useres can edit the current word, delete the word, click on an existing definition, or add a new definition to the word. If a user clicks an existing definition, the user can then edit or delete the definition. Editing the word or adding a definition can be done from the same page and should see the additions/changes immediately. Each page except the home page has a link at the bottom to navigate back to the main page.
 
 ## Setup/Installation Requirements
 
@@ -24,11 +24,10 @@ You can either click on the Heroku link below, or follow the subsequent instruct
 * Clone repository from Github
 * Navigate to the top level of the project directory
 * To create the Gemfile.lock: $ bundle install
-* To run the script: $ ruby app.rb
+* To create a local server and run the project: $ ruby app.rb
 * In your browser, navigate to localhost:4567  
 
-## Git Hub link:s
-
+## Git Hub link:
 https://github.com/CrankyJones/wordictionary
 
 
